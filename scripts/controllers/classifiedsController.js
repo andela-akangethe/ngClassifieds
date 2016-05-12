@@ -3,10 +3,10 @@
 
   angular
     .module('ngClassifieds')
-    .controller('classifiedsController', function($http) {
+    .controller('classifiedsController', function($http, classifiedsFactory) {
       var vm = this;
 
-      $http.get('data/classifieds.json').then(function(classifieds) {
+      classifiedsFactory.getClassifieds().then(function(classifieds) {
         vm.classifieds = classifieds.data;
       });
     });
